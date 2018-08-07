@@ -122,6 +122,11 @@ var argv = yargs
         },
         alphaTexture : {
             describe : 'Path to the alpha texture that should override textures in the .mtl file.'
+        },
+        offsetFile : {
+            describe: 'Path to a three line file with vertex offsets. Each line in the file should be a coordinate offset.',
+            type: 'string',
+            normalize: true
         }
     }).parse(args);
 
@@ -167,7 +172,8 @@ var options = {
     specularGlossiness : argv.specularGlossiness,
     materialsCommon : argv.materialsCommon,
     overridingTextures : overridingTextures,
-    outputDirectory : outputDirectory
+    outputDirectory : outputDirectory,
+    offsetFile : argv.offsetFile
 };
 
 console.time('Total');
