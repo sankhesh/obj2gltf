@@ -32,6 +32,7 @@
     "jpeg-js": "^0.3.3",
     "mime": "^2.0.3",
     "pngjs": "^3.3.0",
+    "proj4": "^2.4.4",
     "yargs": "^10.0.3"
   },
   "devDependencies": {

@@ -127,6 +127,21 @@ var argv = yargs
             describe: 'Path to a three line file with vertex offsets. Each line in the file should be a coordinate offset.',
             type: 'string',
             normalize: true
+        },
+        transformVertices: {
+            describe: 'The vertex positions in the obj will be converted to destination projection using proj4.',
+            type : 'boolean',
+            default : defaults.transformVertices
+        },
+        sourceProjection: {
+            describe: 'Source projection for transforming vertex positions. Should be a proj or wkt string.',
+            type: 'string',
+            normalize: true
+        },
+        destProjection: {
+            describe: 'Destination projection for transforming vertex positions. Should be a proj or wkt string.',
+            type: 'string',
+            normalize: true
         }
     }).parse(args);
 
@@ -173,7 +188,10 @@ var options = {
     materialsCommon : argv.materialsCommon,
     overridingTextures : overridingTextures,
     outputDirectory : outputDirectory,
-    offsetFile : argv.offsetFile
+    offsetFile : argv.offsetFile,
+    transformVertices : argv.transformVertices,
+    sourceProjection : argv.sourceProjection,
+    destProjection : argv.destProjection
 };
 
 console.time('Total');
